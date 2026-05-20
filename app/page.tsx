@@ -1,65 +1,58 @@
-import Image from "next/image";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <div className="flex flex-col min-h-screen">
+      <Navbar currentPage="home" />
+      <main className="flex-1 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="flex flex-col justify-start px-8 py-16 sm:px-12 sm:pt-16 lg:pl-16 lg:pr-8 lg:pt-20">
+          <section className="flex max-w-xl w-full flex-col self-end">
+            <p className="text-[0.9rem] font-medium text-[#475569] mb-3 tracking-[0.01em]">
+              Welcome to ONEklient.
+            </p>
+            <h1 className="mb-6 text-[42px] font-extrabold leading-[1.236] tracking-[-0.027em] text-[#0f172a]">
+              Your gateway to online
+              <br className="hidden md:inline" />
+              products designed to
+              <br className="hidden md:inline" />
+              streamline business.
+            </h1>
+            <div className="mb-6 flex flex-col gap-4">
+              <p className="m-0 text-[0.95rem] leading-[1.618] text-[#475569]">
+                ONEklient helps streamline, organize, and improve business
+                processes — so your team can focus on serving each client with
+                care.
+              </p>
+              <p className="m-0 text-[0.95rem] leading-[1.618] text-[#475569]">
+                Integrate essential tools into one secure portal, reduce
+                repetition, improve accuracy, and advance every process with
+                confidence.
+              </p>
+            </div>
+            <p className="mt-2 text-[0.95rem] font-bold text-[#0f172a]">
+              Start with clarity. Work with purpose. Serve as one.
+            </p>
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="#"
+              className="mt-6 inline-flex items-center gap-1.5 self-start rounded-[6px] bg-[#2563eb] px-5 py-2.5 text-sm font-medium text-white no-underline shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-colors hover:bg-[#1d4ed8]"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              ONEklient Admin
+              <span className="text-[0.95rem] transition-transform duration-200 group-hover:translate-x-[3px]">
+                &gt;
+              </span>
+            </a>
+          </section>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        <div className="pl-6 pr-6 lg:pr-8 pb-12 lg:pb-16 pt-10 lg:pt-16 flex items-start justify-center bg-[#f8fafc] overflow-hidden">
+          <img
+            src="/image/Gemini_Generated_Image_bw99rwbw99rwbw99.png"
+            alt="ONEklient Dashboard Preview"
+            className="w-full max-w-[640px] h-auto object-contain rounded-lg"
+          />
+        </div>{" "}
       </main>
+      <Footer />
     </div>
   );
 }
