@@ -1,5 +1,6 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -35,12 +36,10 @@ export default function Home() {
             </p>
             <a
               href="#"
-              className="mt-6 inline-flex items-center gap-1.5 self-start rounded-[6px] bg-[#2563eb] px-5 py-2.5 text-sm font-medium text-white no-underline shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-colors hover:bg-[#1d4ed8]"
+              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded-[6px] bg-[#2563eb] px-5 py-2.5 text-sm font-medium text-white no-underline shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-colors hover:bg-[#1d4ed8]"
             >
               ONEklient Admin
-              <span className="text-[0.95rem] transition-transform duration-200 group-hover:translate-x-[3px]">
-                &gt;
-              </span>
+              <ArrowRight className="h-[0.95rem] w-[0.95rem] transition-transform duration-200 group-hover:translate-x-[3px]" />
             </a>
           </section>
         </div>

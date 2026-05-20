@@ -1,5 +1,7 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Target } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -41,11 +43,11 @@ export default function AboutPage() {
           <div className="flex w-full max-w-[900px] flex-col px-5">
             <h2 className="mb-4 text-left text-[1.75rem] font-extrabold text-[#0f172a]">Our purpose</h2>
             <div className="relative flex w-full items-center">
-              <section className="relative flex-1 rounded-[12px] border border-[#e2e8f0] bg-gradient-to-br from-[#f0f9ff] to-[#f8fafc] py-[10px] pr-[130px] pl-7 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
-                <p className="text-[0.95rem] leading-[1.618] text-[#475569]">
+              <Alert variant="notice" className="relative flex-1 max-w-full rounded-[12px] py-[10px] pr-[130px] pl-7 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+                <AlertDescription className="m-0 text-[0.95rem] leading-[1.618]">
                   To bring practical business tools into one secure and efficient portal.
-                </p>
-              </section>
+                </AlertDescription>
+              </Alert>
               <figure className="absolute right-[-50px] z-[2] h-auto w-[280px] flex-shrink-0" aria-hidden="true">
                 <img
                   src="/image/Gemini_Generated_Image_j9d8eyj9d8eyj9d8-removebg-preview.png"

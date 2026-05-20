@@ -1,5 +1,7 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Globe } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -16,28 +18,29 @@ export default function ContactPage() {
             </p>
 
             <div className="mt-6 flex gap-5">
-              <div className="flex h-20 min-w-[250px] items-center gap-3 rounded-[6px] border border-[#e2e8f0] bg-[#f8fafc] px-5 shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(0,0,0,0.08)]">
-                <div className="-mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[8px] bg-[rgba(37,99,235,0.1)]">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M22 6L12 13L2 6" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div className="flex flex-col justify-center">
-                  <strong className="block text-[1.1rem] font-bold text-[#0f172a]">Email:</strong>
-                  <a href="mailto:support@oneklient.com" className="no-underline text-[#2563eb] font-medium hover:text-[#1d4ed8]">support@oneklient.com</a>
-                </div>
-              </div>
+              <Card className="flex h-20 min-w-[250px] items-center gap-3 rounded-[6px] border border-[#e2e8f0] bg-[#f8fafc] px-5 shadow-[0_1px_2px_rgba(0,0,0,0.05)] ring-0 transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(0,0,0,0.08)]">
+                <CardContent className="flex h-full items-center gap-3 p-0">
+                  <div className="-mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[8px] bg-[rgba(37,99,235,0.1)]">
+                    <Mail className="h-5 w-5 text-[#2563eb]" />
+                  </div>
+                  <div className="flex flex-col justify-center">
+                    <strong className="block text-[1.1rem] font-bold text-[#0f172a]">Email:</strong>
+                    <a href="mailto:support@oneklient.com" className="no-underline text-[#2563eb] font-medium hover:text-[#1d4ed8]">support@oneklient.com</a>
+                  </div>
+                </CardContent>
+              </Card>
 
-              <div className="flex h-20 min-w-[250px] items-center gap-3 rounded-[6px] border border-[#e2e8f0] bg-[#f8fafc] px-5 shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(0,0,0,0.08)]">
-                <div className="-mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center">
-                  <img src="/svg/logo-icon.svg" alt="Portal" className="h-6 w-6" />
-                </div>
-                <div className="flex flex-col justify-center">
-                  <strong className="block text-[1.1rem] font-bold text-[#0f172a]">Portal:</strong>
-                  <a href="https://admin.oneklient.com" target="_blank" rel="noopener noreferrer" className="no-underline text-[#2563eb] font-medium hover:text-[#1d4ed8]">admin.oneklient.com</a>
-                </div>
-              </div>
+              <Card className="flex h-20 min-w-[250px] items-center gap-3 rounded-[6px] border border-[#e2e8f0] bg-[#f8fafc] px-5 shadow-[0_1px_2px_rgba(0,0,0,0.05)] ring-0 transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(0,0,0,0.08)]">
+                <CardContent className="flex h-full items-center gap-3 p-0">
+                  <div className="-mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[8px] bg-[rgba(37,99,235,0.1)]">
+                    <Globe className="h-5 w-5 text-[#2563eb]" />
+                  </div>
+                  <div className="flex flex-col justify-center">
+                    <strong className="block text-[1.1rem] font-bold text-[#0f172a]">Portal:</strong>
+                    <a href="https://admin.oneklient.com" target="_blank" rel="noopener noreferrer" className="no-underline text-[#2563eb] font-medium hover:text-[#1d4ed8]">admin.oneklient.com</a>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

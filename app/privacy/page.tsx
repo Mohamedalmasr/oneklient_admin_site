@@ -1,5 +1,7 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { ShieldCheck, Info } from "lucide-react";
 
 export default function PrivacyPage() {
   return (
@@ -10,17 +12,22 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
 
-        <p className="mb-[10px] rounded-[6px] border border-[#e2e8f0] bg-[#f8fafc] px-[14px] py-[10px] text-[0.95rem] leading-[1.618] text-[#475569]">
-          This page is a placeholder for the full privacy policy and should be reviewed before publication.
-        </p>
+        <Alert variant="notice" className="mb-[10px] rounded-[6px] px-[14px] py-[10px]">
+          <AlertDescription className="m-0 text-[0.95rem] leading-[1.618]">
+            This page is a placeholder for the full privacy policy and should be reviewed before publication.
+          </AlertDescription>
+        </Alert>
 
-        <p className="mb-10 rounded-[6px] border border-[rgba(37,99,235,0.2)] bg-[rgba(37,99,235,0.05)] px-[14px] py-[10px] text-[0.95rem] leading-[1.618] text-[#2563eb]">
-          ONEklient Solutions Inc. is committed to protecting information handled through its administration portals.
-        </p>
+        <Alert variant="info" className="mb-10 rounded-[6px] px-[14px] py-[10px]">
+          <ShieldCheck className="size-5 text-[#2563eb]" />
+          <AlertDescription className="m-0 text-[0.95rem] leading-[1.618]">
+            ONEklient Solutions Inc. is committed to protecting information handled through its administration portals.
+          </AlertDescription>
+        </Alert>
 
         <section className="mt-2">
           <div className="mb-[14px] flex items-center gap-3">
-            <img src="/svg/shield-health-safety-svgrepo-com.svg" alt="" className="h-8 w-8" />
+            <ShieldCheck className="h-8 w-8 text-[#2563eb]" />
             <h2 className="text-[1.25rem] font-semibold text-[#0f172a]">Information handling</h2>
           </div>
           <p className="mb-8 max-w-[750px] text-[0.95rem] leading-[1.618] text-[#475569]">
