@@ -7,16 +7,16 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Navbar currentPage="home" />
       <main className="flex-1 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="flex flex-col justify-start px-8 py-16 sm:px-12 sm:pt-16 lg:pl-16 lg:pr-8 lg:pt-20">
+        <div className="flex flex-col justify-start px-4 py-12 sm:px-6 sm:pt-12 md:px-8 lg:pl-16 lg:pr-8 lg:pt-20">
           <section className="flex max-w-xl w-full flex-col self-end">
-            <p className="text-[0.9rem] font-medium text-[#475569] mb-3 tracking-[0.01em]">
+            <p className="text-[0.9rem] font-medium text-[#475569] mb-4 tracking-[0.01em]">
               Welcome to ONEklient.
             </p>
-            <h1 className="mb-6 text-[42px] font-extrabold leading-[1.236] tracking-[-0.027em] text-[#0f172a]">
+            <h1 className="mb-6 text-[clamp(1.85rem,4vw,2.625rem)] font-extrabold leading-[1.236] tracking-[-0.027em] text-[#0f172a]">
               Your gateway to online
-              <br className="hidden md:inline" />
+              <br className="hidden sm:inline" />
               products designed to
-              <br className="hidden md:inline" />
+              <br className="hidden sm:inline" />
               streamline business.
             </h1>
             <div className="mb-6 flex flex-col gap-4">
@@ -36,20 +36,20 @@ export default function Home() {
             </p>
             <a
               href="#"
-              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded-[6px] bg-[#2563eb] px-5 py-2.5 text-sm font-medium text-white no-underline shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-colors hover:bg-[#1d4ed8]"
+              className="group mt-6 inline-flex items-center gap-2 self-start rounded-lg bg-[#2563eb] px-6 py-3 text-[0.95rem] font-medium text-white no-underline shadow-md transition-all duration-200 hover:bg-[#1d4ed8] hover:shadow-lg"
             >
               ONEklient Admin
-              <ArrowRight className="h-[0.95rem] w-[0.95rem] transition-transform duration-200 group-hover:translate-x-[3px]" />
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </a>
           </section>
         </div>
-        <div className="pl-6 pr-6 lg:pr-8 pb-12 lg:pb-16 pt-10 lg:pt-16 flex items-start justify-center bg-[#f8fafc] overflow-hidden">
+        <div className="flex items-start justify-center bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] px-4 pb-12 pt-10 lg:px-8 lg:pb-16 lg:pt-16">
           <img
             src="/image/Gemini_Generated_Image_bw99rwbw99rwbw99.png"
             alt="ONEklient Dashboard Preview"
-            className="w-full max-w-[640px] h-auto object-contain rounded-lg"
+            className="hidden md:block w-full max-w-xl h-auto object-contain"
           />
-        </div>{" "}
+        </div>
       </main>
       <Footer />
     </div>
