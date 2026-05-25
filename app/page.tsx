@@ -1,6 +1,5 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -34,13 +33,6 @@ export default function Home() {
             <p className="mt-2 text-[0.95rem] font-bold text-[#0f172a]">
               Start with clarity. Work with purpose. Serve as one.
             </p>
-            <a
-              href="#"
-              className="group mt-6 inline-flex items-center gap-2 self-start rounded-lg bg-[#2563eb] px-6 py-3 text-[0.95rem] font-medium text-white no-underline shadow-md transition-all duration-200 hover:bg-[#1d4ed8] hover:shadow-lg"
-            >
-              ONEklient Admin
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </a>
           </section>
         </div>
         <div className="flex items-start justify-center bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] px-4 pb-12 pt-10 lg:px-8 lg:pb-16 lg:pt-16">

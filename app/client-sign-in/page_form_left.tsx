@@ -99,7 +99,7 @@ export default function ClientSignInFormLeft() {
     <Card className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_80px_rgba(15,23,42,0.08)]">
       <CardHeader className="px-6 pt-6">
         <CardTitle className="text-[1.15rem] font-semibold text-slate-950">
-          Organization Credentials
+          ON Boarding New Organization
         </CardTitle>
         <CardDescription className="mt-2 text-sm text-slate-600">
           Fill in the organization fields to continue with the left sign in

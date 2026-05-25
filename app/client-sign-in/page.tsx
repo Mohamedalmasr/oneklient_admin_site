@@ -26,11 +26,11 @@ export default function ClientSignInPage() {
               className="self-start rounded-full border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-100"
             >
               <Link
-                href="/administration"
+                href="/"
                 className="inline-flex items-center gap-2"
               >
                 <ChevronLeft className="h-4 w-4" />
-                Administration
+                Home
               </Link>
             </Button>
 
