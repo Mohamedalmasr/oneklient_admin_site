@@ -109,7 +109,7 @@ export default function ClientSignInFormLeft() {
       <CardContent className="px-6 pb-6 pt-2">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">
-            <Label htmlFor="orgId">Org ID</Label>
+            <Label htmlFor="orgId">Account Number</Label>
             <div className="relative">
               <Building2 className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <Input
@@ -117,21 +117,6 @@ export default function ClientSignInFormLeft() {
                 name="orgId"
                 value={orgId}
                 onChange={(event) => setOrgId(event.target.value)}
-                placeholder="Enter Org ID"
-                className="pl-10"
-              />
-            </div>
-          </div>
-
-          <div className="space-y-1.5">
-            <Label htmlFor="accountNumber">Account Number</Label>
-            <div className="relative">
-              <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-              <Input
-                id="accountNumber"
-                name="accountNumber"
-                value={accountNumber}
-                onChange={(event) => setAccountNumber(event.target.value)}
                 placeholder="Enter Account Number"
                 className="pl-10"
               />
@@ -139,7 +124,22 @@ export default function ClientSignInFormLeft() {
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="licenseNumber">Licence number</Label>
+            <Label htmlFor="accountNumber">Client Card Number</Label>
+            <div className="relative">
+              <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <Input
+                id="accountNumber"
+                name="accountNumber"
+                value={accountNumber}
+                onChange={(event) => setAccountNumber(event.target.value)}
+                placeholder="Enter Client Card Number"
+                className="pl-10"
+              />
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="licenseNumber">Pass Key</Label>
             <div className="relative">
               <KeyRound className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <Input
@@ -147,14 +147,14 @@ export default function ClientSignInFormLeft() {
                 name="licenseNumber"
                 value={licenseNumber}
                 onChange={(event) => setLicenseNumber(event.target.value)}
-                placeholder="Enter Licence number"
+                placeholder="Enter Pass Key"
                 className="pl-10"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="keyCode">Key code</Label>
+            <Label htmlFor="keyCode">Licence Number</Label>
             <div className="relative">
               <Lock className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <Input
@@ -162,14 +162,14 @@ export default function ClientSignInFormLeft() {
                 name="keyCode"
                 value={keyCode}
                 onChange={(event) => setKeyCode(event.target.value)}
-                placeholder="Enter Key code"
+                placeholder="Enter Licence Number"
                 className="pl-10"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="clientCardNumber">Client Card Number</Label>
+            <Label htmlFor="clientCardNumber">Key Code</Label>
             <div className="relative">
               <CreditCard className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <Input
@@ -177,7 +177,7 @@ export default function ClientSignInFormLeft() {
                 name="clientCardNumber"
                 value={clientCardNumber}
                 onChange={(event) => setClientCardNumber(event.target.value)}
-                placeholder="Enter Client Card Number"
+                placeholder="Enter Key Code"
                 className="pl-10"
               />
             </div>
