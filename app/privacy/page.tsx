@@ -14,11 +14,11 @@ export default function PrivacyPage() {
         <div className="mb-8 flex flex-wrap items-center gap-4 text-[0.95rem] text-[#475569]">
           <div className="flex items-center gap-2">
             <Calendar className="size-4 text-[#2563eb]" />
-            <span>Effective Date: 2022-01-01</span>
+            <span>Effective Date: 2025-06-01</span>
           </div>
           <div className="flex items-center gap-2">
             <RefreshCw className="size-4 text-[#2563eb]" />
-            <span>Last Updated: 2024-10-26</span>
+            <span>Last Updated: 2026-03-13</span>
           </div>
         </div>
 
@@ -45,20 +45,6 @@ export default function PrivacyPage() {
             This Privacy Policy outlines how we collect, use, and safeguard the information you provide when using our services and websites.
           </p>
 
-          <ul className="flex flex-col gap-4 sm:flex-row sm:gap-6">
-            <li className="flex flex-1 flex-col items-center gap-3 rounded-xl bg-[#f8fafc] p-5 text-center transition-all duration-200 hover:bg-[#f1f5f9] hover:shadow-md">
-              <img src="/svg/database-svgrepo-com.svg" alt="" className="h-12 w-12 text-[#2563eb]" />
-              <span className="text-[0.95rem] font-medium text-[#475569]">Data Collection</span>
-            </li>
-            <li className="flex flex-1 flex-col items-center gap-3 rounded-xl bg-[#f8fafc] p-5 text-center transition-all duration-200 hover:bg-[#f1f5f9] hover:shadow-md">
-              <img src="/svg/cogwheel-svgrepo-com.svg" alt="" className="h-12 w-12 text-[#2563eb]" />
-              <span className="text-[0.95rem] font-medium text-[#475569]">Data Usage</span>
-            </li>
-            <li className="flex flex-1 flex-col items-center gap-3 rounded-xl bg-[#f8fafc] p-5 text-center transition-all duration-200 hover:bg-[#f1f5f9] hover:shadow-md">
-              <img src="/svg/database-lock-svgrepo-com.svg" alt="" className="h-12 w-12 text-[#2563eb]" />
-              <span className="text-[0.95rem] font-medium text-[#475569]">Data Storage</span>
-            </li>
-          </ul>
         </section>
 
         <section className="mt-12 space-y-10">
