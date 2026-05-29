@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Building2, CreditCard, KeyRound, Lock, User } from "lucide-react";
+import { Building2, CreditCard, HelpCircle, KeyRound, Lock, User } from "lucide-react";
 
 interface ToastData {
   id: number;
@@ -98,8 +98,9 @@ export default function ClientSignInFormLeft() {
   return (
     <Card className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_80px_rgba(15,23,42,0.08)]">
       <CardHeader className="px-6 pt-6">
-        <CardTitle className="text-[1.15rem] font-semibold text-slate-950">
+        <CardTitle className="text-[1.15rem] font-semibold text-slate-950 flex items-center gap-2">
           ON Boarding New Organization
+          <HelpCircle className="h-4 w-4 text-blue-500 cursor-help" />
         </CardTitle>
         <CardDescription className="mt-2 text-sm text-slate-600">
           Fill in the organization fields to continue with the left sign in
