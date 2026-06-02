@@ -8,13 +8,20 @@ const navLinks = [
   { href: "/about", label: "About us", key: "about" },
   { href: "/contact", label: "Contact us", key: "contact" },
   { href: "/privacy", label: "Privacy Policy", key: "privacy" },
+  { href: "/license", label: "Validate License", key: "license" },
   { href: "/client-sign-in", label: "Administration", key: "administration" },
 ] as const;
 
 const allKeys = navLinks.map((l) => l.key) as readonly string[];
 
 interface NavbarProps {
-  currentPage?: "home" | "about" | "contact" | "privacy" | "administration";
+  currentPage?:
+    | "home"
+    | "about"
+    | "contact"
+    | "privacy"
+    | "license"
+    | "administration";
 }
 
 export default function Navbar({ currentPage = "home" }: NavbarProps) {

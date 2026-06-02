@@ -3,7 +3,7 @@ import "./globals.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://oneklient.com"),
@@ -35,13 +35,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://oneklient.com",
     title: "ONEklient Solutions Inc. | Administration Portals",
-    description: "Unified, secure workflow tools for modern businesses. Explore ONEklient's administration portals.",
+    description:
+      "Unified, secure workflow tools for modern businesses. Explore ONEklient's administration portals.",
     siteName: "ONEklient Solutions Inc.",
   },
   twitter: {
     card: "summary_large_image",
     title: "ONEklient Solutions Inc. | Administration Portals",
-    description: "Unified, secure workflow tools for modern businesses. Explore ONEklient's administration portals.",
+    description:
+      "Unified, secure workflow tools for modern businesses. Explore ONEklient's administration portals.",
     site: "@oneklient",
   },
   alternates: { canonical: "https://oneklient.com" },
@@ -60,7 +62,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("font-sans", geist.variable)}
+    >
       <body className="antialiased">{children}</body>
     </html>
   );
