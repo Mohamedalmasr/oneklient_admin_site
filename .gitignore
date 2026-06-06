@@ -51,6 +51,11 @@ next-env.d.ts
 *.swo
 *~
 
+# Non-runtime design/reference files
+/Design/
+AGENTS.md
+CLAUDE.md
+
 # Plesk-specific
 /public/uploads/
 /uploads/

@@ -238,10 +238,12 @@ export default function ClientSignInFormLeft() {
       <CardHeader className="px-6 pt-6">
         <CardTitle className="text-[1.15rem] font-semibold text-slate-950 flex items-center gap-2">
           ON Boarding New Organization
-          <HelpCircle
-            className="h-4 w-4 text-blue-500 cursor-help"
-            title="Verify your organization credentials to gain access"
-          />
+          <span title="Verify your organization credentials to gain access">
+            <HelpCircle
+              className="h-4 w-4 text-blue-500 cursor-help"
+              aria-hidden="true"
+            />
+          </span>
         </CardTitle>
         <CardDescription className="mt-2 text-sm text-slate-600">
           Fill in the organization fields to continue with the sign in flow.

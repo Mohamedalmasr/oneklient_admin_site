@@ -31,7 +31,7 @@ export default function PrivacyPage() {
         <Alert variant="info" className="mb-10 rounded-xl px-5 py-4 shadow-sm">
           <ShieldCheck className="size-5 text-[#2563eb]" />
             <AlertDescription className="m-0 text-[0.95rem] leading-[1.618]">
-              ONEklient Solutions Inc ("we," "our," or "us") is committed to protecting your privacy and ensuring the security of your personal information.
+              ONEklient Solutions Inc (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy and ensuring the security of your personal information.
             </AlertDescription>
         </Alert>
 

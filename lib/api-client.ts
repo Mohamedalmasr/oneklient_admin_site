@@ -4,13 +4,15 @@
  */
 
 // Type definitions for API responses
-export interface ApiResponse<T = unknown> {
+export type ApiResponse<T = unknown> = (T extends object
+  ? T
+  : Record<string, unknown>) & {
   success: boolean;
   message?: string;
   data?: T;
-  errors?: Record<string, unknown>;
-  ErrorAID?: string;
-}
+  errors?: Record<string, unknown> | unknown[];
+  ErrorAID?: string | number;
+};
 
 export interface LicenseValidationRequest {
   licenseKey: string;
@@ -27,13 +29,17 @@ export interface LicenseValidationResponse {
 }
 
 // API configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || "")
+  .trim()
+  .replace(/\/+$/, "");
 const API_TIMEOUT = process.env.NEXT_PUBLIC_API_TIMEOUT
   ? parseInt(process.env.NEXT_PUBLIC_API_TIMEOUT, 10)
   : 30000;
+const API_WITH_CREDENTIALS =
+  process.env.NEXT_PUBLIC_API_WITH_CREDENTIALS === "true";
 
 export const API_ENDPOINTS = {
-  HEALTH: "/health",
+  HEALTH: "/api/health",
   LICENSE_VALIDATE: "/api/license/validate",
 } as const;
 
@@ -41,7 +47,17 @@ export const API_ENDPOINTS = {
  * Get full API URL
  */
 export function getApiUrl(endpoint: string): string {
-  return `${API_BASE_URL}${endpoint}`;
+  if (/^https?:\/\//i.test(endpoint)) {
+    return endpoint;
+  }
+
+  const normalizedEndpoint = endpoint.startsWith("/")
+    ? endpoint
+    : `/${endpoint}`;
+
+  return API_BASE_URL
+    ? `${API_BASE_URL}${normalizedEndpoint}`
+    : normalizedEndpoint;
 }
 
 /**
@@ -58,6 +74,45 @@ export class ApiError extends Error {
   }
 }
 
+const getErrorMessage = (data: unknown): string | undefined => {
+  if (
+    data &&
+    typeof data === "object" &&
+    "message" in data &&
+    typeof data.message === "string"
+  ) {
+    return data.message;
+  }
+
+  return undefined;
+};
+
+const parseResponseBody = async <T>(
+  response: Response,
+): Promise<ApiResponse<T>> => {
+  const text = await response.text();
+
+  if (!text) {
+    return { success: response.ok } as ApiResponse<T>;
+  }
+
+  return JSON.parse(text) as ApiResponse<T>;
+};
+
+const isAbsoluteUrl = (url: string) => /^https?:\/\//i.test(url);
+
+const isCrossOriginUrl = (url: string) => {
+  if (!isAbsoluteUrl(url)) {
+    return false;
+  }
+
+  if (typeof window === "undefined") {
+    return true;
+  }
+
+  return new URL(url).origin !== window.location.origin;
+};
+
 /**
  * Generic API request function with error handling and CORS support
  */
@@ -68,6 +123,13 @@ export async function apiCall<T = unknown>(
   const url = getApiUrl(endpoint);
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), API_TIMEOUT);
+  const isCrossOrigin = isCrossOriginUrl(url);
+  const credentials: RequestCredentials = API_WITH_CREDENTIALS
+    ? "include"
+    : isCrossOrigin
+      ? "omit"
+      : "same-origin";
+  const mode: RequestMode = isCrossOrigin ? "cors" : "same-origin";
 
   try {
     const response = await fetch(url, {
@@ -78,8 +140,8 @@ export async function apiCall<T = unknown>(
         ...options.headers,
       },
       signal: controller.signal,
-      credentials: "include", // Enable CORS credentials if needed
-      mode: "cors", // Explicitly set CORS mode
+      credentials,
+      mode,
     });
 
     clearTimeout(timeoutId);
@@ -95,13 +157,12 @@ export async function apiCall<T = unknown>(
       throw new ApiError(
         response.status,
         errorData,
-        (errorData as ApiResponse).message ||
+        getErrorMessage(errorData) ||
           `API request failed with status ${response.status}`,
       );
     }
 
-    const responseData = (await response.json()) as ApiResponse<T>;
-    return responseData;
+    return parseResponseBody<T>(response);
   } catch (error) {
     clearTimeout(timeoutId);
 
@@ -153,7 +214,9 @@ export async function checkBackendHealth(): Promise<ApiResponse> {
 /**
  * GET request
  */
-export async function apiGet<T = unknown>(endpoint: string): Promise<T> {
+export async function apiGet<T = unknown>(
+  endpoint: string,
+): Promise<ApiResponse<T>> {
   return apiCall<T>(endpoint, { method: "GET" });
 }
 
@@ -163,7 +226,7 @@ export async function apiGet<T = unknown>(endpoint: string): Promise<T> {
 export async function apiPost<T = unknown>(
   endpoint: string,
   data?: Record<string, unknown>,
-): Promise<T> {
+): Promise<ApiResponse<T>> {
   return apiCall<T>(endpoint, {
     method: "POST",
     body: JSON.stringify(data),
@@ -176,7 +239,7 @@ export async function apiPost<T = unknown>(
 export async function apiPut<T = unknown>(
   endpoint: string,
   data?: Record<string, unknown>,
-): Promise<T> {
+): Promise<ApiResponse<T>> {
   return apiCall<T>(endpoint, {
     method: "PUT",
     body: JSON.stringify(data),
@@ -186,6 +249,8 @@ export async function apiPut<T = unknown>(
 /**
  * DELETE request
  */
-export async function apiDelete<T = unknown>(endpoint: string): Promise<T> {
+export async function apiDelete<T = unknown>(
+  endpoint: string,
+): Promise<ApiResponse<T>> {
   return apiCall<T>(endpoint, { method: "DELETE" });
 }

@@ -19,11 +19,6 @@ const alertVariants = cva(
   }
 )
 
-const alertIconStyles: Record<string, string> = {
-  info: "text-[#2563eb]",
-  notice: "text-[#475569]",
-}
-
 function Alert({
   className,
   variant,

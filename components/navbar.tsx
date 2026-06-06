@@ -12,8 +12,6 @@ const navLinks = [
   { href: "/client-sign-in", label: "Administration", key: "administration" },
 ] as const;
 
-const allKeys = navLinks.map((l) => l.key) as readonly string[];
-
 interface NavbarProps {
   currentPage?:
     | "home"

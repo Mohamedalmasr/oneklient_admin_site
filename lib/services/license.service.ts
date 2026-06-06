@@ -13,9 +13,13 @@ export interface LicenseValidationRequest {
 export interface LicenseValidationResponse {
   success: boolean;
   ErrorAID?: number | string;
-  message: string;
-  // Add any additional table row data your backend service passes back on success here
-  [key: string]: any;
+  message?: string;
+  website?: string | null;
+  client?: {
+    ClientCard: string | null;
+    AccountNum: string | null;
+  };
+  [key: string]: unknown;
 }
 
 /**

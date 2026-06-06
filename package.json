@@ -5,9 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node server.js",
+    "start:next": "next start",
     "lint": "eslint",
     "type-check": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
